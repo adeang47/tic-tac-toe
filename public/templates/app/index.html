@@ -1,0 +1,41 @@
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>TIC TAC TOE</title>
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-dropdown/2.0.3/jquery.dropdown.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-mocks/1.5.5/angular-mocks.min.js"></script>
+    <script src="app.js"></script>
+    <script src="app.routes.js"></script>
+    <script src="games/games.module.js"></script>
+    <script src="games/controllers/startGame.controller.js"></script>
+    <script src="games/controllers/gameOver.controller.js"></script>
+    <script src="games/controllers/board.controller.js"></script>
+    <script src="games/directives/board.directive.js"></script>
+    <script src="games/services/game.service.js"></script>
+
+
+    <base href="/">
+
+</head>
+<body>
+
+<div ui-view style="margin: 10px;">
+
+    <div class="jumbotron text-center">
+        <h1>Welcome to Tic Tac Toe!</h1>
+        <a ui-sref="startGame" class="btn btn-success">Play!</a>
+    </div>
+
+</div>
+
+
+</body>
+</html>

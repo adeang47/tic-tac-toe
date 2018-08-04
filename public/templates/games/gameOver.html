@@ -1,0 +1,9 @@
+<div class="jumbotron text-center" style="margin: 10px;">
+    <h1 ng-show="outcome=='win'">Player {{ playerNum + 1 }} Won!</h1>
+    <h1 ng-show="outcome=='draw'">Draw!</h1>
+    <div>
+        <button ng-click="rematch()" class="btn btn-success">Rematch</button>
+        <button ng-click="replay()" class="btn btn-primary">Replay</button>
+        <button ng-click="done()" class="btn btn-default">Done</button>
+    </div>
+</div>

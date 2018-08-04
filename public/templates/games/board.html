@@ -1,0 +1,25 @@
+<div>
+    <h5>Board Size {{ size }} x {{ size }}</h5>
+    <span ng-show="!gameOver || isReplay">Player {{ playerTurn + 1 }}'s Turn</span><span ng-show="isReplay" class="label label-primary" style="margin-left: 2px;">Replay</span>
+    <span ng-show="gameOver && !isReplay">Game Over</span>
+    <div class="text-center" style="width: 100%;">
+        <div class="board">
+            <div ng-repeat="row in boardArray" ng-init="rowIdx = $index"
+                 style="width: 300px; height: calc(300px/{{ size }});">
+                <div ng-repeat="col in row" ng-init="colIdx = $index"
+                     style="display: inline-block; border-style: solid; border-width: 1px; border-color: #b2b2b2; width: calc(300px/{{ size }}); height: calc(300px/ {{ size }})">
+                    <button ng-click="selectTile(rowIdx, colIdx)" ng-disabled="gameOver || isCompTurn" class="board-tile-button">
+                        <span ng-show="checkPlayer(rowIdx, colIdx)==0">X</span>
+                        <span ng-show="checkPlayer(rowIdx, colIdx)==1">O</span>
+                        <span ng-show="checkPlayer(rowIdx, colIdx)==-1" style="color: transparent">-</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inline-children margin-top-medium">
+        <button ng-click="reset()" class="btn btn-primary">Reset</button>
+        <button ng-show="players!=0 && !gameOver" ng-click="redo()" class="btn btn-warning">Redo</button>
+        <button ng-show="gameOver" ng-click="replayMatch()" class="btn btn-primary">Replay</button>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="col-md-12 text-center">
+
+    <button ng-click="createGame()" ng-show="!makeNewGame" class="btn btn-success">New Game</button>
+
+    <!-- CREATE NEW GAME -->
+    <div ng-show="makeNewGame" class="jumbotron text-center">
+        <h2>Start a Game</h2>
+        <div class="dropdown-group">
+            <div>
+                <span>Game Type</span>
+            </div>
+            <button ng-click="showGameTypes=!showGameTypes" class="btn btn-default dropdown-toggle">
+                {{ gameName }} <span class="caret"></span>
+            </button>
+            <ul ng-show="showGameTypes" class="dropdown-list">
+                <li ng-repeat="(gameTypeId, gameTypeName) in gameTypes" ng-click="selectGameType(gameTypeId)" class="text-center">
+                    {{ gameTypeName }}
+                </li>
+            </ul>
+        </div>
+        <div class="margin-top-medium dropdown-group">
+            <div>
+                <span>Board Size</span>
+            </div>
+            <button ng-click="showBoardSizes=!showBoardSizes" class="btn btn-default dropdown-toggle">
+                {{ boardName }} <span class="caret"></span>
+            </button>
+            <ul ng-show="showBoardSizes" class="dropdown-list">
+                <li ng-repeat="(boardSizeId, boardSizeName) in boardSizes" ng-click="selectBoardSize(boardSizeId)">{{
+                    boardSizeName }}
+                </li>
+            </ul>
+        </div>
+        <div class="margin-top-medium">
+            <button ng-click="startGame()" class="btn btn-success">Start</button>
+        </div>
+    </div>
+
+    <board ng-show="liveGame" size="boardSize" players="gameType" end-game="endGame(game)"></board>
+
+</div>
